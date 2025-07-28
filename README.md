@@ -4,6 +4,14 @@ This project is a **Test-Driven Development (TDD)** challenge using Java and Spr
 
 ---
 
+## 🧱 Domain Model
+
+Below is the database structure for the application:
+
+**Challenge Diagram**
+<img width="960" height="352" alt="entities-tdd" src="https://github.com/user-attachments/assets/ed58d8fd-910b-440a-bb70-45471959102c" />
+
+
 ## 🎯 Challenge Objective
 - Implement resource management using Java and Spring Boot
 - Apply data validation and error handling
