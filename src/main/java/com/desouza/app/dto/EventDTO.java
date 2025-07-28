@@ -3,13 +3,25 @@ package com.desouza.app.dto;
 import java.time.LocalDate;
 
 import com.desouza.app.entities.Events;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class EventDTO {
 
     private Long id;
+
+    @NotBlank(message = "Field is required")
     private String name;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @FutureOrPresent(message = "Date must be in the present or in the future")
     private LocalDate date;
     private String url;
+
+    @NotNull(message = "Field is required")
     private Long cityId;
 
     public EventDTO() {

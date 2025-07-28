@@ -2,9 +2,13 @@ package com.desouza.app.dto;
 
 import com.desouza.app.entities.City;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class CityDTO {
 
     private Long id;
+
+    @NotBlank(message = "Field is required")
     private String name;
 
     public CityDTO() {
