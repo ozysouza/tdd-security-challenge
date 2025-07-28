@@ -126,7 +126,7 @@ public class EventControllerIT {
 
         result.andExpect(status().isUnprocessableEntity());
         result.andExpect(jsonPath("$.errors[0].fieldName").value("name"));
-        result.andExpect(jsonPath("$.errors[0].message").value("Campo requerido"));
+        result.andExpect(jsonPath("$.errors[0].message").value("Field is required"));
     }
 
     @Test
@@ -144,7 +144,7 @@ public class EventControllerIT {
 
         result.andExpect(status().isUnprocessableEntity());
         result.andExpect(jsonPath("$.errors[0].fieldName").value("date"));
-        result.andExpect(jsonPath("$.errors[0].message").value("A data do evento não pode ser passada"));
+        result.andExpect(jsonPath("$.errors[0].message").value("Date must be in the present or in the future"));
     }
 
     @Test
@@ -162,7 +162,7 @@ public class EventControllerIT {
 
         result.andExpect(status().isUnprocessableEntity());
         result.andExpect(jsonPath("$.errors[0].fieldName").value("cityId"));
-        result.andExpect(jsonPath("$.errors[0].message").value("Campo requerido"));
+        result.andExpect(jsonPath("$.errors[0].message").value("Field is required"));
     }
 
     @Test
