@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,14 +21,19 @@ public class Events {
     private LocalDate date;
     private String url;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
     public Events() {
     }
 
-    public Events(Long id, String name, LocalDate date, String url) {
+    public Events(Long id, String name, LocalDate date, String url, City city) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.url = url;
+        this.city = city;
     }
 
     public void setId(Long id) {
@@ -59,6 +66,14 @@ public class Events {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 
 }
