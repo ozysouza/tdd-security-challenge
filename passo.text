@@ -1,0 +1,15 @@
+Passos para resolver o desafio:
+Modelo de dados User-Role
+Entidades
+Seed da base de dados
+Incluir infraestrutura de exceções e validação
+Dependências Bean Validation
+Exceções de serviço customizadas
+Handler de exceções dos controladores
+Incluir infraestrutura de segurança ao projeto
+Dependências Spring Security e OAuth2
+Variáveis de ambiente
+Checklist do Spring Security
+Implementação customizada password grant
+Classes de configuração Authorization Server e Resource Server
+Implementar as funcionalidades
