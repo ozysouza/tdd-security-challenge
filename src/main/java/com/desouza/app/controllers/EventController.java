@@ -3,8 +3,11 @@ package com.desouza.app.controllers;
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +36,12 @@ public class EventController {
                 .buildAndExpand(dto.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(dto);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<EventDTO>> findAll(Pageable pageable) {
+        Page<EventDTO> events = eventService.findAll(pageable);
+        return ResponseEntity.ok(events);
     }
 
 }

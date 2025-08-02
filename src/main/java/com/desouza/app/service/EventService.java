@@ -1,6 +1,8 @@
 package com.desouza.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +33,12 @@ public class EventService {
 
         event = eventRepository.save(event);
         return new EventDTO(event);
+    }
+
+    @Transactional
+    public Page<EventDTO> findAll(Pageable pageable) {
+        Page<Events> events = eventRepository.findAll(pageable);
+        return events.map(EventDTO::new);
     }
 
 }
